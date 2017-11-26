@@ -1,0 +1,16 @@
+this._i = 0
+
+function Ticker() {
+
+};
+Ticker.prototype = {
+	tick: function() {
+		console.log(this._i++);
+	}
+};
+var ticker = new Ticker();
+setInterval(ticker.tick, 1000);
+
+
+
+This в функции ссылается на объект, который вызывает эту функцию как метод. Поэтому this._i и не увеличивается. Чтобы это исправить переносим this._i из функции Ticker.
